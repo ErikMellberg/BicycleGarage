@@ -16,6 +16,9 @@ public class Bike {
 		return null;
 	}
 	
+	/**
+	 * Generates a new barcode
+	 */
 	public void changeBarCode() {
 		
 	}

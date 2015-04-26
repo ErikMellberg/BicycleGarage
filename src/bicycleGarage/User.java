@@ -12,7 +12,7 @@ public class User {
 	 * @param bike
 	 *            Bike of user
 	 */
-	public User(NationalIdentityNumber nbr, Bike bike) {
+	public User(NationalIdentityNumber nbr, Bike bike, PinCode pin) {
 
 	}
 

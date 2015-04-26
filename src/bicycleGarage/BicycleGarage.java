@@ -3,9 +3,11 @@ package bicycleGarage;
 import interfaces.*;
 import testDrivers.*;
 
-public class GarageMain {
+public class BicycleGarage{
+	
+	int capacity;
 
-	public GarageMain() {
+	public BicycleGarage() {
 		BicycleGarageManager manager = new BicycleGarageManager();
 		ElectronicLock entryLock = new ElectronicLockTestDriver("Entry lock");
 		ElectronicLock exitLock = new ElectronicLockTestDriver("Exit lock");
@@ -18,8 +20,23 @@ public class GarageMain {
 		readerEntry.register(manager);
 		readerExit.register(manager);
 	}
+	/**
+	 * Sets the capacity of the garage
+	 * @param capacity
+	 */
+	public void setCapacity(int capacity) {
+		
+	}
+	
+	/**
+	 * 
+	 * @return returns the capacity of the garage
+	 */
+	public int getCapacity() {
+		return 0;
+	}
 
 	public static void main(String[] args) {
-		GarageMain main = new GarageMain();
+		BicycleGarage garage = new BicycleGarage();
 	}
 }

@@ -5,12 +5,12 @@ import interfaces.*;
 public class BicycleGarageManager {
 
 	public BicycleGarageManager() {
+		
 	}
 
 	public void registerHardwareDrivers(BarcodePrinter printer,
 			ElectronicLock entryLock, ElectronicLock exitLock,
 			PinCodeTerminal terminal) {
-
 	}
 
 	public void entryCharacter(char c) {
