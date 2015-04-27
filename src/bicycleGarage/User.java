@@ -3,16 +3,20 @@ package bicycleGarage;
 import java.util.LinkedList;
 
 public class User {
+	
 
 	/**
 	 * Creates a user with ID-number nbr if available, else throws exception
 	 * 
-	 * @param nbr
+	 * @param id
 	 *            ID-number of user
 	 * @param bike
 	 *            Bike of user
+	 * @param pin
+	 *            Pincode of user
+	 * 
 	 */
-	public User(NationalIdentityNumber nbr, Bike bike, PinCode pin) {
+	public User(String id, Bike bike, PinCode pin) {
 
 	}
 
@@ -26,23 +30,27 @@ public class User {
 	public boolean addBike(Bike bike) {
 		return false;
 	}
-	
+
 	/**
 	 * removes specified bike
-	 * @param bike Bike to be removed
+	 * 
+	 * @param bike
+	 *            Bike to be removed
 	 * @return True if removed else false
 	 */
 	public boolean removeBike(Bike bike) {
 		return false;
 	}
-	
+
 	/**
 	 * Changes users pincode
-	 * @param pin New pincode
+	 * 
+	 * @param pin
+	 *            New pincode
 	 */
-	public void changePinCode(PinCode pin) {	
+	public void changePinCode(PinCode pin) {
 	}
-	
+
 	/**
 	 *
 	 * @return all bikes registered on this user
