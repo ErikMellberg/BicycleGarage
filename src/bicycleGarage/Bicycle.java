@@ -1,18 +1,18 @@
 package bicycleGarage;
 
-public class Bike {
+public class Bicycle {
 
 	/**
-	 * Creates a bike and generates a barcode
+	 * Creates a bicycle and generates a barcode
 	 */
-	public Bike() {	
+	public Bicycle() {	
 	}
 	
 	/**
 	 * 
 	 * @return returns barcode
 	 */
-	public BarCode getBarCode() {
+	public String getBarCode() {
 		return null;
 	}
 	

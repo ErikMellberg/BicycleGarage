@@ -16,7 +16,7 @@ public class User {
 	 *            Pincode of user
 	 * 
 	 */
-	public User(String id, Bike bike, PinCode pin) {
+	public User(String idnumber, Bicycle bike, String pin) {
 
 	}
 
@@ -27,7 +27,7 @@ public class User {
 	 *            Bike to be added
 	 * @return True if added else false
 	 */
-	public boolean addBike(Bike bike) {
+	public boolean addBike(Bicycle bike) {
 		return false;
 	}
 
@@ -38,7 +38,7 @@ public class User {
 	 *            Bike to be removed
 	 * @return True if removed else false
 	 */
-	public boolean removeBike(Bike bike) {
+	public boolean removeBike(Bicycle bike) {
 		return false;
 	}
 
@@ -48,14 +48,14 @@ public class User {
 	 * @param pin
 	 *            New pincode
 	 */
-	public void changePinCode(PinCode pin) {
+	public void changePinCode(String pin) {
 	}
 
 	/**
 	 *
 	 * @return all bikes registered on this user
 	 */
-	public LinkedList<Bike> getBikes() {
+	public LinkedList<Bicycle> getBikes() {
 		return null;
 	}
 }
