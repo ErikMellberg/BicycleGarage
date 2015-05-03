@@ -5,8 +5,6 @@ import testDrivers.*;
 
 public class BicycleGarage{
 	
-	int capacity;
-
 	public BicycleGarage() {
 		BicycleGarageManager manager = new BicycleGarageManager();
 		ElectronicLock entryLock = new ElectronicLockTestDriver("Entry lock");
@@ -19,21 +17,6 @@ public class BicycleGarage{
 		BarcodeReader readerExit = new BarcodeReaderExitTestDriver();
 		readerEntry.register(manager);
 		readerExit.register(manager);
-	}
-	/**
-	 * Sets the capacity of the garage
-	 * @param capacity
-	 */
-	public void setCapacity(int capacity) {
-		
-	}
-	
-	/**
-	 * 
-	 * @return returns the capacity of the garage
-	 */
-	public int getCapacity() {
-		return 0;
 	}
 
 	public static void main(String[] args) {

@@ -1,9 +1,13 @@
 package bicycleGarage;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class User {
 	
+	private String idNumber;
+	private String pin;
+	private LinkedList<Bicycle> bicycles;
 
 	/**
 	 * Creates a user with ID-number nbr if available, else throws exception
@@ -16,8 +20,14 @@ public class User {
 	 *            Pincode of user
 	 * 
 	 */
-	public User(String idnumber, Bicycle bike, String pin) {
+	public User(String idNumber, Bicycle bicycle, String pin) {
+		this.idNumber = idNumber;
+		this.pin = pin;
+		bicycles.add(bicycle);
+	}
 
+	public String getIdNumber() {
+		return idNumber;
 	}
 
 	/**
@@ -27,8 +37,9 @@ public class User {
 	 *            Bike to be added
 	 * @return True if added else false
 	 */
-	public boolean addBike(Bicycle bike) {
-		return false;
+	public boolean addBicycle(Bicycle bicycle) {
+		bicycles.add(bicycle);
+		return true;
 	}
 
 	/**
@@ -38,7 +49,14 @@ public class User {
 	 *            Bike to be removed
 	 * @return True if removed else false
 	 */
-	public boolean removeBike(Bicycle bike) {
+	public boolean removeBicycle(String barcode) {
+		Iterator<Bicycle> itr = bicycles.iterator();
+		while(itr.hasNext()) {
+			if(itr.next().getBarcode().equals(barcode)) {
+				itr.remove();
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -48,14 +66,28 @@ public class User {
 	 * @param pin
 	 *            New pincode
 	 */
-	public void changePinCode(String pin) {
+	public void changePin(String pin) {
+		this.pin = pin;
+	}
+	
+	public String getPin() {
+		return pin;
 	}
 
 	/**
 	 *
 	 * @return all bikes registered on this user
 	 */
-	public LinkedList<Bicycle> getBikes() {
-		return null;
+	public LinkedList<Bicycle> getBicycles() {
+		return bicycles;
+	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(idNumber + ": ");
+		for (Bicycle bicycle : bicycles) {
+			sb.append(bicycle + " ");
+		}
+		return sb.toString();
 	}
 }

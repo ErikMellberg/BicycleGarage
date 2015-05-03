@@ -2,16 +2,24 @@ package bicycleGarage;
 
 public class Admin {
 
+	private String idNumber;
+	private String pin;
+
 	/**
 	 * Creates an admin
 	 * 
-	 * @param number
-	 *            NID of admin
+	 * @param idnumber
+	 *            idnumber of admin
 	 * @param pin
 	 *            pincode of admin
 	 */
-	public Admin(NationalIdentityNumber number, PinCode pin) {
+	public Admin(String idNumber, String pin) {
+		this.idNumber = idNumber;
+		this.pin = pin;
+	}
 
+	public String getIdNumber() {
+		return idNumber;
 	}
 
 	/**
@@ -20,7 +28,15 @@ public class Admin {
 	 * @param pin
 	 *            new pin
 	 */
-	public void changePin(PinCode pin) {
+	public void changePin(String pin) {
+		this.pin = pin;
+	}
+	
+	public String getPin() {
+		return pin;
+	}
 
+	public String toString() {
+		return idNumber;
 	}
 }
