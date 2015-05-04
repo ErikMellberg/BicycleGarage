@@ -13,16 +13,11 @@ public class BicycleGarageManager {
 	private Database database;
 	private StringBuilder pincode;
 	private Instant firstChar;
-	
 
 	public BicycleGarageManager() {
 		database = new Database();
 		pincode = new StringBuilder();
-		for (int i = 0; i < 10000; i++) {
-			database.addAdmin(String.valueOf(1000000000 + i),
-					String.valueOf(1000 + i / 10));
-		}
-		database.addAdmin(String.valueOf(1234567890), String.valueOf(1234));
+		database.addUser(String.valueOf(1234567890), String.valueOf(1234));
 	}
 
 	public void registerHardwareDrivers(BarcodePrinter printer,
@@ -35,12 +30,12 @@ public class BicycleGarageManager {
 	}
 
 	public void entryCharacter(char c) {
+		System.out.println(database.listUsers());
 		if (pincode.length() == 0) {
 			firstChar = Instant.now();
 		} else if (firstChar.isBefore(Instant.now().minusSeconds(5))) {
 			firstChar = Instant.now();
 			pincode = new StringBuilder();
-			System.out.println("Too slow");
 			terminal.lightLED(0, 2);
 		}
 		pincode.append(c);
@@ -64,15 +59,16 @@ public class BicycleGarageManager {
 	public void entryBarcode(String barcode) {
 		printer.printBarcode(barcode);
 	}
-	
+
 	/**
 	 * Sets the capacity of the garage
+	 * 
 	 * @param capacity
 	 */
 	public void setCapacity(int capacity) {
 		database.setCapacity(capacity);
 	}
-	
+
 	/**
 	 * 
 	 * @return returns the capacity of the garage
@@ -80,6 +76,5 @@ public class BicycleGarageManager {
 	public int getCapacity() {
 		return database.getCapacity();
 	}
-
 
 }

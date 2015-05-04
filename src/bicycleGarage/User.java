@@ -21,6 +21,7 @@ public class User {
 	 * 
 	 */
 	public User(String idNumber, Bicycle bicycle, String pin) {
+		bicycles = new LinkedList<Bicycle>();
 		this.idNumber = idNumber;
 		this.pin = pin;
 		bicycles.add(bicycle);

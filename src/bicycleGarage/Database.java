@@ -114,24 +114,38 @@ public class Database {
 	}
 
 	public String listCurrentUsers() {
-		
-		return null;
+		StringBuilder list = new StringBuilder();
+		for (User user : users) {
+			for (Bicycle bicycle : user.getBicycles()) {
+				StringBuilder activeUser = new StringBuilder();
+				if (bicycle.getStatus()) {
+					if (activeUser.length() == 0) {
+						activeUser.append(user.getIdNumber() + ": "
+								+ bicycle.getBarcode());
+					} else {
+						activeUser.append(bicycle.getBarcode());
+					}
+				}
+				list.append(activeUser + " ");
+			}
+		}
+		return list.toString();
 	}
 
 	public List<Admin> listAdmins() {
-		
+
 	}
 
 	public boolean checkEntryBarcode(String barcode) {
-		
+
 	}
 
 	public boolean checkExitBarcode(String barcode) {
-		
+
 	}
 
 	public boolean checkPinCode(String pincode) {
-		for(User user : users) {
+		for (User user : users) {
 			if (user.getPin().equals(pincode)) {
 				return true;
 			}
@@ -143,14 +157,16 @@ public class Database {
 		}
 		return false;
 	}
+
 	/**
 	 * Sets the capacity of the garage
+	 * 
 	 * @param capacity
 	 */
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-	
+
 	/**
 	 * 
 	 * @return returns the capacity of the garage

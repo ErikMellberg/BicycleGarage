@@ -3,8 +3,9 @@ package bicycleGarage;
 import java.util.Random;
 
 public class Bicycle {
-	
-	String barcode;
+
+	private String barcode;
+	private boolean parkingStatus;
 
 	/**
 	 * Creates a bicycle and generates a barcode
@@ -16,13 +17,22 @@ public class Bicycle {
 			sb.append(String.valueOf(r.nextInt(10)));
 		}
 		barcode = sb.toString();
+		parkingStatus = false;
 	}
-	
+
 	/**
 	 * 
 	 * @return returns barcode
 	 */
 	public String getBarcode() {
 		return barcode;
+	}
+
+	public void changeStatus() {
+		parkingStatus = !parkingStatus;
+	}
+
+	public boolean getStatus() {
+		return parkingStatus;
 	}
 }
