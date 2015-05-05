@@ -5,7 +5,7 @@ import java.util.Random;
 public class Bicycle {
 
 	private String barcode;
-	private boolean parkingStatus;
+	private boolean parkingStatus; //True if parked
 
 	/**
 	 * Creates a bicycle and generates a barcode
@@ -13,7 +13,7 @@ public class Bicycle {
 	public Bicycle() {
 		Random r = new Random();
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 			sb.append(String.valueOf(r.nextInt(10)));
 		}
 		barcode = sb.toString();

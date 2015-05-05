@@ -20,6 +20,6 @@ public class BicycleGarage{
 	}
 
 	public static void main(String[] args) {
-		BicycleGarage garage = new BicycleGarage();
+		new BicycleGarage();
 	}
 }

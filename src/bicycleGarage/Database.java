@@ -22,7 +22,10 @@ public class Database {
 				return false;
 			}
 		}
-		users.add(new User(idNumber, new Bicycle(), pin));
+		Bicycle bicycle = new Bicycle();
+		System.out.println(bicycle.getBarcode());
+		users.add(new User(idNumber, bicycle, pin));
+		
 		return true;
 	}
 
@@ -132,16 +135,36 @@ public class Database {
 		return list.toString();
 	}
 
-	public List<Admin> listAdmins() {
-
-	}
-
 	public boolean checkEntryBarcode(String barcode) {
-
+		for (User user : users) {
+			for (Bicycle bicycle : user.getBicycles()) {
+				if (bicycle.getBarcode().equals(barcode)) {
+					if (bicycle.getStatus()) {
+						return false;
+					} else {
+						bicycle.changeStatus();
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	public boolean checkExitBarcode(String barcode) {
-
+		for (User user : users) {
+			for (Bicycle bicycle : user.getBicycles()) {
+				if (bicycle.getBarcode().equals(barcode)) {
+					if (bicycle.getStatus()) {
+						bicycle.changeStatus();
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	public boolean checkPinCode(String pincode) {

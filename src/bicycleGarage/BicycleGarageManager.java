@@ -18,6 +18,7 @@ public class BicycleGarageManager {
 		database = new Database();
 		pincode = new StringBuilder();
 		database.addUser(String.valueOf(1234567890), String.valueOf(1234));
+		
 	}
 
 	public void registerHardwareDrivers(BarcodePrinter printer,
@@ -30,7 +31,6 @@ public class BicycleGarageManager {
 	}
 
 	public void entryCharacter(char c) {
-		System.out.println(database.listUsers());
 		if (pincode.length() == 0) {
 			firstChar = Instant.now();
 		} else if (firstChar.isBefore(Instant.now().minusSeconds(5))) {
@@ -39,7 +39,6 @@ public class BicycleGarageManager {
 			terminal.lightLED(0, 2);
 		}
 		pincode.append(c);
-
 		if (pincode.length() == 4) {
 			if (database.checkPinCode(pincode.toString())) {
 				entryLock.open(10);
@@ -52,12 +51,20 @@ public class BicycleGarageManager {
 	}
 
 	public void exitBarcode(String barcode) {
-		// TODO Auto-generated method stub
-
+		if (barcode.length() == 5) {
+			if (database.checkExitBarcode(barcode)) {
+				exitLock.open(10);
+				
+			}
+		}
 	}
 
 	public void entryBarcode(String barcode) {
-		printer.printBarcode(barcode);
+		if (barcode.length() == 5) {
+			if (database.checkEntryBarcode(barcode)) {
+				entryLock.open(10);
+			}
+		}
 	}
 
 	/**
