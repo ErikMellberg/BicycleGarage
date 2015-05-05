@@ -23,9 +23,8 @@ public class Database {
 			}
 		}
 		Bicycle bicycle = new Bicycle();
-		System.out.println(bicycle.getBarcode());
+		System.out.println("Barcode: " + bicycle.getBarcode());
 		users.add(new User(idNumber, bicycle, pin));
-		
 		return true;
 	}
 

@@ -18,7 +18,7 @@ public class BicycleGarageManager {
 		database = new Database();
 		pincode = new StringBuilder();
 		database.addUser(String.valueOf(1234567890), String.valueOf(1234));
-		
+		System.out.println("Personnummer: 1234567890, pin: 1234");
 	}
 
 	public void registerHardwareDrivers(BarcodePrinter printer,
@@ -83,5 +83,8 @@ public class BicycleGarageManager {
 	public int getCapacity() {
 		return database.getCapacity();
 	}
-
+	
+	public void printBarcode(String barcode) {
+		printer.printBarcode(barcode);
+	}
 }
