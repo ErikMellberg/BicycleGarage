@@ -20,11 +20,10 @@ public class User {
 	 *            Pincode of user
 	 * 
 	 */
-	public User(String idNumber, Bicycle bicycle, String pin) {
+	public User(String idNumber, String pin) {
 		bicycles = new LinkedList<Bicycle>();
 		this.idNumber = idNumber;
 		this.pin = pin;
-		bicycles.add(bicycle);
 	}
 
 	public String getIdNumber() {
@@ -85,9 +84,9 @@ public class User {
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(idNumber + ": ");
+		sb.append(idNumber + " " + pin);
 		for (Bicycle bicycle : bicycles) {
-			sb.append(bicycle + " ");
+			sb.append(" " + bicycle + " " + bicycle.getStatus());
 		}
 		return sb.toString();
 	}

@@ -37,6 +37,6 @@ public class Admin {
 	}
 
 	public String toString() {
-		return idNumber;
+		return idNumber + " " + pin;
 	}
 }

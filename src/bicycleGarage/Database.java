@@ -1,8 +1,13 @@
 package bicycleGarage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Database {
 
@@ -14,6 +19,12 @@ public class Database {
 	public Database() {
 		users = new LinkedList<User>();
 		admins = new LinkedList<Admin>();
+		read();
+		String user = new String("1234567890");
+		addUser(user, new String("1234"));
+		System.out.println("Size: " + size + " Capacity: " + capacity);
+		System.out.println(listUsers());
+		save();
 	}
 
 	public boolean addUser(String idNumber, String pin) {
@@ -22,9 +33,7 @@ public class Database {
 				return false;
 			}
 		}
-		Bicycle bicycle = new Bicycle();
-		System.out.println("Barcode: " + bicycle.getBarcode());
-		users.add(new User(idNumber, bicycle, pin));
+		users.add(new User(idNumber, pin));
 		return true;
 	}
 
@@ -60,13 +69,32 @@ public class Database {
 		return false;
 	}
 
-	public boolean addBicycle(String idNumber, Bicycle bicycle) {
+	public boolean addBicycle(String idNumber) {
 		if (size == capacity) {
 			return false;
 		}
 		for (User user : users) {
 			if (user.getIdNumber().equals(idNumber)) {
-				user.addBicycle(bicycle);
+				Random r = new Random();
+				StringBuilder sb = new StringBuilder();
+				for (int i = 0; i < 5; i++) {
+					sb.append(r.nextInt(10));
+				}
+				user.addBicycle(new Bicycle(sb.toString(), false));
+				size++;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean addBicycle(String idNumber, String barcode, boolean parkingStatus) {
+		if (size == capacity) {
+			return false;
+		}
+		for (User user : users) {
+			if (user.getIdNumber().equals(idNumber)) {
+				user.addBicycle(new Bicycle(barcode, parkingStatus));
 				size++;
 				return true;
 			}
@@ -197,4 +225,45 @@ public class Database {
 		return capacity;
 	}
 
+	public void save() {
+		File file = new File("Database.txt");
+		PrintWriter out = null;
+		try {
+			out = new PrintWriter(file);
+			out.println(capacity);
+			for (Admin admin : admins) {
+				out.println("A " + admin.toString());
+			}
+			for (User user : users) {
+				out.println("U " + user.toString());
+			}
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void read() {
+		Scanner scan;
+		try {
+			scan = new Scanner(new File("Database.txt"));
+			while (scan.hasNextLine()) {
+				String line = scan.nextLine();
+				String[] parts = line.split(" ");
+				if (parts[0].equals("A")) {
+					addAdmin(parts[1], parts[2]);
+				} else if (parts[0].equals("U")) {
+					addUser(parts[1], parts[2]);
+					for (int i = 3; i < parts.length; i += 2) {
+						addBicycle(parts[1], parts[i], Boolean.parseBoolean(parts[i+1]));
+					}
+				} else {
+					setCapacity(Integer.parseInt(parts[0]));
+				}
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }

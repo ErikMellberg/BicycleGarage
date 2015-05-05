@@ -7,17 +7,9 @@ public class Bicycle {
 	private String barcode;
 	private boolean parkingStatus; //True if parked
 
-	/**
-	 * Creates a bicycle and generates a barcode
-	 */
-	public Bicycle() {
-		Random r = new Random();
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 5; i++) {
-			sb.append(String.valueOf(r.nextInt(10)));
-		}
-		barcode = sb.toString();
-		parkingStatus = false;
+	public Bicycle(String barcode, boolean parkingStatus) {
+		this.barcode = barcode;
+		this.parkingStatus = parkingStatus;
 	}
 
 	/**
@@ -34,5 +26,9 @@ public class Bicycle {
 
 	public boolean getStatus() {
 		return parkingStatus;
+	}
+	
+	public String toString() {
+		return barcode;
 	}
 }
