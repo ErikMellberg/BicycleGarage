@@ -7,7 +7,6 @@ import testDrivers.*;
 public class BicycleGarage{
 	
 	public BicycleGarage() {
-		new GUI();
 		BicycleGarageManager manager = new BicycleGarageManager();
 		ElectronicLock entryLock = new ElectronicLockTestDriver("Entry lock");
 		ElectronicLock exitLock = new ElectronicLockTestDriver("Exit lock");
