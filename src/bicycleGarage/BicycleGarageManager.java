@@ -85,4 +85,8 @@ public class BicycleGarageManager {
 	public void printBarcode(String barcode) {
 		printer.printBarcode(barcode);
 	}
+	
+	public Database getDatabase(){
+		return database;
+	}
 }

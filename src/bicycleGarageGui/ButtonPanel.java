@@ -1,12 +1,12 @@
 package bicycleGarageGui;
 
 import java.awt.*;
-
 import javax.swing.*;
+import bicycleGarage.Database;
 
-public class LeftPanel extends JPanel {
+public class ButtonPanel extends JPanel {
 
-	public LeftPanel(){
+	public ButtonPanel(GUI gui){
 		setLayout(new GridLayout(7,1,0,0));
 		//setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(new AddUserButton());
@@ -15,6 +15,6 @@ public class LeftPanel extends JPanel {
 		add(new AddOperatorButton());
 		add(new EditOperatorButton());
 		add(new DeleteOperatorButton());
-		add(new ListUsersButton());
+		add(new ListUsersButton(gui));
 	}
 }

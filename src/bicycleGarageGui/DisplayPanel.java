@@ -3,10 +3,10 @@ package bicycleGarageGui;
 import java.awt.*;
 import javax.swing.*;
 
-public class RightPanel extends JPanel {
+public class DisplayPanel extends JPanel {
 	
-	public RightPanel(){
-		setLayout(new GridLayout(1,1,0,0));
+	public DisplayPanel(){
+		setLayout(new GridLayout(1,1));
 	}
 	
 	public Dimension getPreferredSize() {

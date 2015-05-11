@@ -7,7 +7,6 @@ import testDrivers.*;
 public class BicycleGarage{
 	
 	public BicycleGarage() {
-		new GUI();
 		BicycleGarageManager manager = new BicycleGarageManager();
 		ElectronicLock entryLock = new ElectronicLockTestDriver("Entry lock");
 		ElectronicLock exitLock = new ElectronicLockTestDriver("Exit lock");
@@ -19,6 +18,8 @@ public class BicycleGarage{
 		BarcodeReader readerExit = new BarcodeReaderExitTestDriver();
 		readerEntry.register(manager);
 		readerExit.register(manager);
+		Database database = manager.getDatabase();
+		new GUI(database);
 	}
 
 	public static void main(String[] args) {

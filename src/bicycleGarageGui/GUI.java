@@ -2,29 +2,40 @@ package bicycleGarageGui;
 
 import java.awt.*;
 import java.util.Locale;
-
 import javax.swing.*;
+import bicycleGarage.Database;
 
 public class GUI {	
 	
-	private LeftPanel leftPanel;
-	private RightPanel rightPanel;
+	private ButtonPanel buttonPanel;
+	private DisplayPanel displayPanel;
+	private Database database;
 	
-	public GUI() {	
+	public GUI(Database database) {	
 		
 		JFrame frame = new JFrame("Garage Manager");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		Locale.setDefault(new Locale("en"));
 		
-		leftPanel = new LeftPanel();
-		rightPanel = new RightPanel();
+		buttonPanel = new ButtonPanel(this);
+		displayPanel = new DisplayPanel();
 		
-		frame.add(leftPanel, BorderLayout.WEST);
-		frame.add(rightPanel, BorderLayout.EAST);
+		frame.add(buttonPanel, BorderLayout.WEST);
+		frame.add(displayPanel, BorderLayout.EAST);
 		
 		frame.pack();
 		frame.setVisible(true);
+		this.database = database;
 		
 	}
+	
+	public DisplayPanel getDisplayPanel(){
+		return displayPanel;
+	}
+	public Database getDatabase(){
+		return database;
+	}
+	
+	
 
 }
