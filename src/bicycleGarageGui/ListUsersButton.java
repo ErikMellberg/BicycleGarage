@@ -20,6 +20,7 @@ public class ListUsersButton extends JButton implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e){
 		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
 		gui.getDisplayPanel().add(textArea);
 		textArea.setMargin(new Insets(20,20,20,20));
 		textArea.setText(gui.getDatabase().listUsers());
