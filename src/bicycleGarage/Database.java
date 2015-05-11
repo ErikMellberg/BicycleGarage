@@ -20,8 +20,6 @@ public class Database {
 		users = new LinkedList<User>();
 		admins = new LinkedList<Admin>();
 		read();
-		String user = new String("1234567890");
-		addUser(user, new String("1234"));
 		System.out.println("Size: " + size + " Capacity: " + capacity);
 		System.out.println(listUsers());
 		save();
@@ -140,7 +138,7 @@ public class Database {
 		int num = 0;
 		for (User user : users) {
 			num++;
-			list.append(num + ". " + user.toString() + "\n");
+			list.append(num + ". " + user.print() + "\n");
 		}
 		return list.toString();
 	}

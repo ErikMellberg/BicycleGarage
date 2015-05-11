@@ -90,4 +90,20 @@ public class User {
 		}
 		return sb.toString();
 	}
+	
+	public String print() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(idNumber + " " + pin);
+		int i = 1;
+		for (Bicycle bicycle : bicycles) {
+			sb.append(" Bicycle " + i + ": " + bicycle + " ");
+			if(bicycle.getStatus()) {
+				sb.append("parked.");
+			} else {
+				sb.append("not parked.");
+			}
+			i++;
+		}
+		return sb.toString();
+	}
 }
