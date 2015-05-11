@@ -137,8 +137,10 @@ public class Database {
 
 	public String listUsers() {
 		StringBuilder list = new StringBuilder();
+		int num = 0;
 		for (User user : users) {
-			list.append(user.toString() + "\n");
+			num++;
+			list.append(num + ". " + user.toString() + "\n");
 		}
 		return list.toString();
 	}
