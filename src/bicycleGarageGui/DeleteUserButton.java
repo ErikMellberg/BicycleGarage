@@ -7,7 +7,7 @@ import javax.swing.JButton;
 public class DeleteUserButton extends JButton implements ActionListener{
 
 	public DeleteUserButton(){
-		super("Ta bort Användarkonto");
+		super("Ta bort Anvandarkonto");
 		addActionListener(this);
 	}
 	

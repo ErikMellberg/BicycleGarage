@@ -7,7 +7,7 @@ import javax.swing.JButton;
 public class AddUserButton extends JButton implements ActionListener{
 
 	public AddUserButton(){
-		super("Lägg till Användarkonto");
+		super("Lagg till Anvandarkonto");
 		addActionListener(this);
 	}
 	

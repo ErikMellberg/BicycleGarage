@@ -7,7 +7,7 @@ import javax.swing.JButton;
 public class AddOperatorButton extends JButton implements ActionListener{
 
 	public AddOperatorButton(){
-		super("Lägg till Operatörskonto");
+		super("Lagg till Operatorskonto");
 		addActionListener(this);
 	}
 	

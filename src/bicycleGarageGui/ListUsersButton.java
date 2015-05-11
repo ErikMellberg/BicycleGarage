@@ -13,7 +13,7 @@ public class ListUsersButton extends JButton implements ActionListener{
 	private GUI gui;
 
 	public ListUsersButton(GUI gui){
-		super("Lista Användare och Cyklar");
+		super("Lista Anvandare och Cyklar");
 		this.gui = gui;
 		addActionListener(this);
 	}
