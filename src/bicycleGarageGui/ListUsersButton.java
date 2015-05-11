@@ -19,6 +19,7 @@ public class ListUsersButton extends JButton implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e){
+		gui.getDisplayPanel().removeAll();
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		gui.getDisplayPanel().add(textArea);
