@@ -10,10 +10,11 @@ public class GUI {
 	private ButtonPanel buttonPanel;
 	private DisplayPanel displayPanel;
 	private Database database;
+	private JFrame frame;
 	
 	public GUI(Database database) {	
 		
-		JFrame frame = new JFrame("Garage Manager");
+		frame = new JFrame("Garage Manager");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		Locale.setDefault(new Locale("en"));
 		
@@ -25,17 +26,18 @@ public class GUI {
 		
 		frame.pack();
 		frame.setVisible(true);
-		this.database = database;
-		
+		this.database = database;		
 	}
 	
 	public DisplayPanel getDisplayPanel(){
 		return displayPanel;
 	}
+	
+	public JFrame getFrame(){
+		return frame;
+	}
+	
 	public Database getDatabase(){
 		return database;
 	}
-	
-	
-
 }

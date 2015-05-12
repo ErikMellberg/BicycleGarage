@@ -6,7 +6,6 @@ import javax.swing.*;
 public class DisplayPanel extends JPanel {
 	
 	public DisplayPanel(){
-		setLayout(new GridLayout(1,1));
 	}
 	
 	public Dimension getPreferredSize() {

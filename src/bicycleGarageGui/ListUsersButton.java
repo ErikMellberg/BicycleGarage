@@ -1,5 +1,6 @@
 package bicycleGarageGui;
 
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,10 +21,12 @@ public class ListUsersButton extends JButton implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e){
 		gui.getDisplayPanel().removeAll();
+		gui.getDisplayPanel().setLayout(new GridLayout(1,1));
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		gui.getDisplayPanel().add(textArea);
 		textArea.setMargin(new Insets(20,20,20,20));
 		textArea.setText(gui.getDatabase().listUsers());
+		gui.getFrame().pack();
 	}
 }

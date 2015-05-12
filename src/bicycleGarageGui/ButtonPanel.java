@@ -9,7 +9,7 @@ public class ButtonPanel extends JPanel {
 	public ButtonPanel(GUI gui){
 		setLayout(new GridLayout(7,1,0,0));
 		//setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		add(new AddUserButton());
+		add(new AddUserButton(gui));
 		add(new EditUserButton());
 		add(new DeleteUserButton());
 		add(new AddOperatorButton());
