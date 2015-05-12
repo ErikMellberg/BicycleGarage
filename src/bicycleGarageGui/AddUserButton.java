@@ -29,7 +29,7 @@ public class AddUserButton extends JButton implements ActionListener{
 		JLabel idNumber = new JLabel("  Personnummer:  ");
 		JTextField idField = new JTextField(15);
 		idNumber.setLabelFor(idField);
-		idField.setMargin(new Insets(2,2,2,2));
+		idField.setMargin(new Insets(2,2,2,2));	
 		gui.getDisplayPanel().add(idNumber);
 		gui.getDisplayPanel().add(idField);
 		
@@ -41,12 +41,18 @@ public class AddUserButton extends JButton implements ActionListener{
 		gui.getDisplayPanel().add(pinField);
 			
 		JButton button = new JButton("Lägg till");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				if(gui.getDatabase().addUser(idField.getText(), pinField.getText())){
+					button.setLabel("Klart!");
+				}
+			}
+		});
 		g.anchor = GridBagConstraints.LINE_END;
 		g.gridx = 3;
 		g.gridy = 1;
 		g.insets = new Insets(10,0,0,0);
 		gui.getDisplayPanel().add(button, g);
-	
 
 		gui.getFrame().pack();
 	}
