@@ -45,6 +45,8 @@ public class AddUserButton extends JButton implements ActionListener{
 			public void actionPerformed(ActionEvent e){
 				if(gui.getDatabase().addUser(idField.getText(), pinField.getText())){
 					button.setLabel("Klart!");
+					idField.setText(" ");
+					pinField.setText(" ");
 				}
 			}
 		});
