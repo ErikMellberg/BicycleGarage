@@ -12,7 +12,7 @@ public class ButtonPanel extends JPanel {
 		add(new AddUserButton(gui));
 		add(new EditUserButton());
 		add(new DeleteUserButton());
-		add(new AddOperatorButton());
+		add(new AddOperatorButton(gui));
 		add(new EditOperatorButton());
 		add(new DeleteOperatorButton());
 		add(new ListUsersButton(gui));
