@@ -24,8 +24,9 @@ public class ListUsersButton extends JButton implements ActionListener{
 		gui.getDisplayPanel().setLayout(new GridLayout(1,1));
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
+		textArea.setLineWrap(true);
 		gui.getDisplayPanel().add(textArea);
-		textArea.setMargin(new Insets(20,20,20,20));
+		textArea.setMargin(new Insets(15,15,15,15));
 		textArea.setText(gui.getDatabase().listUsers());
 		gui.getFrame().pack();
 	}

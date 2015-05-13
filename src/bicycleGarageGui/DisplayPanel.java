@@ -9,7 +9,7 @@ public class DisplayPanel extends JPanel {
 	}
 	
 	public Dimension getPreferredSize() {
-		return new Dimension(620, 300);
+		return new Dimension(510, 280);
 	}
 
 }
