@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 import javax.swing.*;
 
@@ -27,7 +28,7 @@ public class AddUserButton extends JButton implements ActionListener{
 		g.anchor = GridBagConstraints.FIRST_LINE_END;
 	
 		JLabel idNumber = new JLabel("Personnummer:  ");
-		JTextField idField = new JTextField(15);
+		NumberTextField idField = new NumberTextField(15);
 		idNumber.setLabelFor(idField);
 		idField.setMargin(new Insets(2,2,2,2));	
 		g.gridx = 0;
@@ -38,7 +39,7 @@ public class AddUserButton extends JButton implements ActionListener{
 		gui.getDisplayPanel().add(idField, g);
 		
 		JLabel pinCode = new JLabel("PIN-kod:  ");
-		JTextField pinField = new JTextField(15);
+		NumberTextField pinField = new NumberTextField(15);
 		pinCode.setLabelFor(pinField);
 		pinField.setMargin(new Insets(2,2,2,2));
 		g.gridx = 0;

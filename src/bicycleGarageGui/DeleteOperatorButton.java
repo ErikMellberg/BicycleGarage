@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class DeleteOperatorButton extends JButton implements ActionListener{
 	private GUI gui;
@@ -27,7 +26,7 @@ public class DeleteOperatorButton extends JButton implements ActionListener{
 		g.anchor = GridBagConstraints.FIRST_LINE_END;
 	
 		JLabel idNumber = new JLabel("Personnummer:  ");
-		JTextField idField = new JTextField(15);
+		NumberTextField idField = new NumberTextField(15);
 		idNumber.setLabelFor(idField);
 		idField.setMargin(new Insets(2,2,2,2));	
 		g.gridx = 0;
