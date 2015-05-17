@@ -96,11 +96,11 @@ public class User {
 		sb.append("Personnummer: " + idNumber + " " + " Pinkod: " + pin + '\n');
 		int i = 1;
 		for (Bicycle bicycle : bicycles) {
-			sb.append(" Bicycle " + i + ": " + bicycle + " ");
+			sb.append(" Cykel " + i + ": " + bicycle + " ");
 			if(bicycle.getStatus()) {
-				sb.append("parked.");
+				sb.append("parkerad.");
 			} else {
-				sb.append("not parked.");
+				sb.append("inte parkerad.");
 			}
 			i++;
 		}
