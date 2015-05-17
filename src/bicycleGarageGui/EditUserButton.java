@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class EditUserButton extends JButton implements ActionListener{
 	GUI gui;
@@ -33,7 +34,7 @@ public class EditUserButton extends JButton implements ActionListener{
 		g.gridy = 0;
 		gui.getDisplayPanel().add(currentIdNumber, g);
 		g.gridx = 1;
-		g.insets = new Insets(0, 0, 20, -40);
+		g.insets = new Insets(0, 0, 30, -40);
 		gui.getDisplayPanel().add(currentIdField, g);
 		
 		JLabel newIdNumber = new JLabel("Nytt Personnummer:  ");
@@ -79,11 +80,7 @@ public class EditUserButton extends JButton implements ActionListener{
 		JButton addButton = new JButton("Registrera cykel");
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				if(gui.getDatabase().addUser(currentIdField.getText(), newPinField.getText())){
-					gui.getDatabase().save();
-					currentIdField.setText(" ");
-					newPinField.setText(" ");
-				}
+
 			}
 		});
 		g.gridx = 0;
@@ -95,11 +92,7 @@ public class EditUserButton extends JButton implements ActionListener{
 		JButton deleteButton = new JButton("Avregistrera cykel");
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				if(gui.getDatabase().addUser(currentIdField.getText(), newPinField.getText())){
-					gui.getDatabase().save();
-					currentIdField.setText(" ");
-					newPinField.setText(" ");
-				}
+
 			}
 		});
 		g.gridx = 1;

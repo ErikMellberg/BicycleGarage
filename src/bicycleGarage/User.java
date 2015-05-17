@@ -25,6 +25,10 @@ public class User {
 		this.idNumber = idNumber;
 		this.pin = pin;
 	}
+	
+	public void changeidNumber(String idNumber){
+		this.idNumber = idNumber;
+	}
 
 	public String getIdNumber() {
 		return idNumber;

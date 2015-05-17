@@ -112,11 +112,31 @@ public class Database {
 		}
 		return false;
 	}
+	
+	public boolean changeUserId(String idNumber, String newId){
+		for(User user: users){
+			if(user.getIdNumber().equals(idNumber)){
+				user.changeidNumber(newId);
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public boolean changeUserPin(String idNumber, String pin) {
 		for (User user : users) {
 			if (user.getIdNumber().equals(idNumber)) {
 				user.changePin(pin);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean changeAdminId(String idNumber, String newId){
+		for(Admin admin: admins){
+			if(admin.getIdNumber().equals(idNumber)){
+				admin.changeidNumber(newId);
 				return true;
 			}
 		}
