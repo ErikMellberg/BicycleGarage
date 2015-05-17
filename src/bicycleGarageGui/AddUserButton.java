@@ -50,7 +50,7 @@ public class AddUserButton extends JButton implements ActionListener{
 		g.insets = new Insets(0, 0, 0, -40);
 		gui.getDisplayPanel().add(pinField, g);
 			
-		JButton button = new JButton("Lägg till");
+		JButton button = new JButton("Registrera");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				if(gui.getDatabase().addUser(idField.getText(), pinField.getText())){

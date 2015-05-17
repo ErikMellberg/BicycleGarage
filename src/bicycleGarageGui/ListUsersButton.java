@@ -17,7 +17,7 @@ public class ListUsersButton extends JButton implements ActionListener{
 	private GUI gui;
 
 	public ListUsersButton(GUI gui){
-		super("Lista Anvandare och Cyklar");
+		super("Registrerade Anvandare");
 		this.gui = gui;
 		addActionListener(this);
 	}
