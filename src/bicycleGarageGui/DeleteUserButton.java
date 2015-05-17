@@ -10,7 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class DeleteUserButton extends JButton implements ActionListener{
+import bicycleGarage.User;
+
+public class DeleteUserButton extends JButton implements ActionListener {
 	private GUI gui;
 
 	public DeleteUserButton(GUI gui){
@@ -40,7 +42,11 @@ public class DeleteUserButton extends JButton implements ActionListener{
 		JButton button = new JButton("Ta bort");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
+				Boolean parked = gui.getDatabase().hasParkedBicycles(idField.getText());
 				if(gui.getDatabase().removeUser(idField.getText())){
+					if(parked){
+						JOptionPane.showMessageDialog(null, "Anvandaren som avregistrerats har en eller flera parkerade cyklar i garaget!");
+					}
 					gui.getDatabase().save();
 					button.setLabel("Klart!");
 					idField.setText(" ");

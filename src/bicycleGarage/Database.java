@@ -60,8 +60,10 @@ public class Database {
 		Iterator<Admin> itr = admins.iterator();
 		while (itr.hasNext()) {
 			if (itr.next().getIdNumber().equals(idNumber)) {
+				if (itr.hasNext()){
 				itr.remove();
 				return true;
+				}
 			}
 		}
 		return false;
@@ -95,6 +97,15 @@ public class Database {
 				user.addBicycle(new Bicycle(barcode, parkingStatus));
 				size++;
 				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean hasParkedBicycles(String idNumber){
+		for(User user: users){
+			if (user.getIdNumber().equals(idNumber)) {
+				return !user.getParkedBicycles().isEmpty();
 			}
 		}
 		return false;

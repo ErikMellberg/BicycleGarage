@@ -8,6 +8,7 @@ public class User {
 	private String idNumber;
 	private String pin;
 	private LinkedList<Bicycle> bicycles;
+	private LinkedList<Bicycle> parked;
 
 	/**
 	 * Creates a user with ID-number nbr if available, else throws exception
@@ -22,6 +23,7 @@ public class User {
 	 */
 	public User(String idNumber, String pin) {
 		bicycles = new LinkedList<Bicycle>();
+		parked = new LinkedList<Bicycle>();
 		this.idNumber = idNumber;
 		this.pin = pin;
 	}
@@ -84,6 +86,15 @@ public class User {
 	 */
 	public LinkedList<Bicycle> getBicycles() {
 		return bicycles;
+	}
+	
+	public LinkedList<Bicycle> getParkedBicycles() {
+		for(Bicycle bicycle: bicycles){
+			if(bicycle.getStatus()){
+				parked.add(bicycle);
+			}
+		}
+		return parked;
 	}
 
 	public String toString() {

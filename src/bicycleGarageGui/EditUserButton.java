@@ -30,10 +30,10 @@ public class EditUserButton extends JButton implements ActionListener{
 		NumberTextField currentIdField = new NumberTextField(15);
 		currentIdNumber.setLabelFor(currentIdField);
 		currentIdField.setMargin(new Insets(2,2,2,2));	
-		g.gridx = 0;
+		g.gridx = 1;
 		g.gridy = 0;
 		gui.getDisplayPanel().add(currentIdNumber, g);
-		g.gridx = 1;
+		g.gridx = 2;
 		g.insets = new Insets(0, 0, 30, -40);
 		gui.getDisplayPanel().add(currentIdField, g);
 		
@@ -41,11 +41,11 @@ public class EditUserButton extends JButton implements ActionListener{
 		NumberTextField newIdField = new NumberTextField(15);
 		currentIdNumber.setLabelFor(newIdField);
 		newIdField.setMargin(new Insets(2,2,2,2));	
-		g.gridx = 0;
+		g.gridx = 1;
 		g.gridy = 1;
 		g.insets = new Insets(0,0,0,0);
 		gui.getDisplayPanel().add(newIdNumber, g);
-		g.gridx = 1;
+		g.gridx = 2;
 		g.insets = new Insets(0, 0, 2, -40);
 		gui.getDisplayPanel().add(newIdField, g);
 		
@@ -53,12 +53,12 @@ public class EditUserButton extends JButton implements ActionListener{
 		NumberTextField newPinField = new NumberTextField(15);
 		newPinCode.setLabelFor(newPinField);
 		newPinField.setMargin(new Insets(2,2,2,2));
-		g.gridx = 0;
+		g.gridx = 1;
 		g.gridy = 2;
 		g.insets = new Insets(0, 0, 0, 0);
 		gui.getDisplayPanel().add(newPinCode, g);
-		g.gridx = 1;
-		g.insets = new Insets(0, 0, 0, -40);
+		g.gridx = 2;
+		g.insets = new Insets(0, 0, 10, -40);
 		gui.getDisplayPanel().add(newPinField, g);
 		
 			
@@ -72,9 +72,9 @@ public class EditUserButton extends JButton implements ActionListener{
 				}
 			}
 		});
-		g.gridx = 1;
+		g.gridx = 2;
 		g.gridy = 3;
-		g.insets = new Insets(10, 0, 0, -40);
+		g.insets = new Insets(0, 0, 30, -40);
 		gui.getDisplayPanel().add(updateButton, g);
 		
 		JButton addButton = new JButton("Registrera cykel");
@@ -83,10 +83,22 @@ public class EditUserButton extends JButton implements ActionListener{
 
 			}
 		});
-		g.gridx = 0;
+		g.gridx = 2;
 		g.gridy = 4;
-		g.insets = new Insets(20,0,0,-40);
+		g.insets = new Insets(0,0,5,-40);
 		gui.getDisplayPanel().add(addButton, g);
+		
+		JLabel bicycleBarCode = new JLabel("Streckkod:");
+		NumberTextField barCodeField = new NumberTextField(10);
+		bicycleBarCode.setLabelFor(barCodeField);
+		barCodeField.setMargin(new Insets(2,2,2,2));	
+		g.gridx = 0;
+		g.gridy = 5;
+		g.insets = new Insets(3,0,0, -52);
+		gui.getDisplayPanel().add(bicycleBarCode, g);
+		g.gridx = 1;
+		g.insets = new Insets(2, 0, 0, -25);
+		gui.getDisplayPanel().add(barCodeField, g);
 
 		
 		JButton deleteButton = new JButton("Avregistrera cykel");
@@ -95,8 +107,9 @@ public class EditUserButton extends JButton implements ActionListener{
 
 			}
 		});
-		g.gridx = 1;
-		g.gridy = 4;
+		g.gridx = 2;
+		g.gridy = 5;
+		g.insets = new Insets(0,0,0,-40);
 		gui.getDisplayPanel().add(deleteButton, g);
 
 
