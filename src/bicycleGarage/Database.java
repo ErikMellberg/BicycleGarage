@@ -20,12 +20,12 @@ public class Database {
 		users = new LinkedList<User>();
 		admins = new LinkedList<Admin>();
 		read();
-		System.out.println("Size: " + size + " Capacity: " + capacity);
-		System.out.println(listUsers());
-		save();
 	}
 
 	public boolean addUser(String idNumber, String pin) {
+		if (idNumber.length() != 10 || pin.length() != 4) {
+			return false;
+		}
 		for (User user : users) {
 			if (user.getIdNumber().equals(idNumber)) {
 				return false;
@@ -36,6 +36,9 @@ public class Database {
 	}
 
 	public boolean addAdmin(String idNumber, String pin) {
+		if (idNumber.length() != 10 || pin.length() != 4) {
+			return false;
+		}
 		for (Admin admin : admins) {
 			if (admin.getIdNumber().equals(idNumber)) {
 				return false;
@@ -129,6 +132,9 @@ public class Database {
 	}
 	
 	public boolean changeUserId(String idNumber, String newId){
+		if (newId.length() != 10) {
+			return false;
+		}
 		for (User user : users) {
 			if (user.getIdNumber().equals(newId)) {
 				return false;
@@ -144,6 +150,9 @@ public class Database {
 	}
 
 	public boolean changeUserPin(String idNumber, String pin) {
+		if (pin.length() != 4) {
+			return false;
+		}
 		for (User user : users) {
 			if (user.getIdNumber().equals(idNumber)) {
 				user.changePin(pin);
@@ -154,6 +163,9 @@ public class Database {
 	}
 	
 	public boolean changeAdminId(String idNumber, String newId){
+		if (newId.length() != 10) {
+			return false;
+		}
 		for (Admin admin : admins) {
 			if (admin.getIdNumber().equals(newId)) {
 				return false;
@@ -169,6 +181,9 @@ public class Database {
 	}
 
 	public boolean changeAdminPin(String idNumber, String pin) {
+		if (pin.length() != 4) {
+			return false;
+		}
 		for (Admin admin : admins) {
 			if (admin.getIdNumber().equals(idNumber)) {
 				admin.changePin(pin);

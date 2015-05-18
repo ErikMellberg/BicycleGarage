@@ -82,14 +82,15 @@ public class EditOperatorButton extends JButton implements ActionListener{
 						}
 					} else {				
 						if (!newPinField.getText().equals("")) {
-							gui.getDatabase().changeAdminPin(
+							if(gui.getDatabase().changeAdminPin(
 									currentIdField.getText(),
-									newPinField.getText());
+									newPinField.getText())){
 							
 							gui.getDatabase().save();
 							currentIdField.setText(" ");
 							newPinField.setText(" ");
 							updateButton.setText("Klart!");
+							}
 						}
 					}
 				}

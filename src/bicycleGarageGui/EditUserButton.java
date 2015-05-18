@@ -83,14 +83,15 @@ public class EditUserButton extends JButton implements ActionListener {
 						}
 					} else {				
 						if (!newPinField.getText().equals("")) {
-							gui.getDatabase().changeUserPin(
+							if (gui.getDatabase().changeUserPin(
 									currentIdField.getText(),
-									newPinField.getText());
+									newPinField.getText())){
 							
 							gui.getDatabase().save();
 							currentIdField.setText(" ");
 							newPinField.setText(" ");
 							updateButton.setText("Klart!");
+							}
 						}
 					}
 				}
