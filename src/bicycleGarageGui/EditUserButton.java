@@ -116,6 +116,21 @@ public class EditUserButton extends JButton implements ActionListener {
 		JButton addButton = new JButton("  Registrera cykel  ");
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (!bicycleField.getText().equals("") && !currentIdField.getText().equals("")){
+					long num = (long) bicycleField.getValue();
+					boolean trueId = false;
+					for(long i = 0; i < num; i++){
+						if (gui.getDatabase().addBicycle(currentIdField.getText())){
+							trueId = true;
+						}
+					}
+					if (trueId){
+					gui.getDatabase().save();
+					currentIdField.setText(" ");
+					bicycleField.setText(" ");
+					addButton.setText("Klart!");
+					}
+				}
 
 			}
 		});
@@ -139,7 +154,15 @@ public class EditUserButton extends JButton implements ActionListener {
 		JButton deleteButton = new JButton("Avregistrera cykel");
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				if (!barCodeField.getText().equals("") && !currentIdField.getText().equals("")){
+						if (gui.getDatabase().removeBicycle(currentIdField.getText(), barCodeField.getText())){
+							gui.getDatabase().save();
+							currentIdField.setText(" ");
+							barCodeField.setText(" ");
+							deleteButton.setText("Klart!");							
+					}
+				}
+				
 			}
 		});
 		g.gridx = 2;

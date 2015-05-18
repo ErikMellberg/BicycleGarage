@@ -115,12 +115,14 @@ public class Database {
 
 	public boolean removeBicycle(String idNumber, String barcode) {
 		for (User user : users) {
-			for (Bicycle bicycle : user.getBicycles()) {
+			if(user.getIdNumber().equals(idNumber)){
+ 			for (Bicycle bicycle : user.getBicycles()) {
 				if (bicycle.getBarcode().equals(barcode)) {
 					user.removeBicycle(barcode);
 					size--;
 					return true;
 				}
+			}
 			}
 		}
 		return false;
