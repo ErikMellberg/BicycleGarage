@@ -58,13 +58,15 @@ public class Database {
 
 	public boolean removeAdmin(String idNumber) {
 		Iterator<Admin> itr = admins.iterator();
+		int n = 0;
 		while (itr.hasNext()) {
 			if (itr.next().getIdNumber().equals(idNumber)) {
-				if (itr.hasNext()){
-				itr.remove();
-				return true;
+				if(itr.hasNext() || n != 0){
+					itr.remove();
+					return true;
 				}
 			}
+			n++;
 		}
 		return false;
 	}
@@ -125,6 +127,11 @@ public class Database {
 	}
 	
 	public boolean changeUserId(String idNumber, String newId){
+		for (User user : users) {
+			if (user.getIdNumber().equals(newId)) {
+				return false;
+			}
+		}
 		for(User user: users){
 			if(user.getIdNumber().equals(idNumber)){
 				user.changeidNumber(newId);
@@ -145,6 +152,11 @@ public class Database {
 	}
 	
 	public boolean changeAdminId(String idNumber, String newId){
+		for (Admin admin : admins) {
+			if (admin.getIdNumber().equals(newId)) {
+				return false;
+			}
+		}
 		for(Admin admin: admins){
 			if(admin.getIdNumber().equals(idNumber)){
 				admin.changeidNumber(newId);
