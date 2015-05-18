@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class EditUserButton extends JButton implements ActionListener {
-	GUI gui;
+	private GUI gui;
 
 	public EditUserButton(GUI gui) {
 		super("Redigera Anvandarkonto");
